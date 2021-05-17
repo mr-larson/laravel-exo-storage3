@@ -9,23 +9,23 @@
             <ul class="navbar-nav">
                 
                 <li class="nav-item">
-                    <a class="nav-link {{ $page === "user" ? "active" : "" }}" href={{ route('user') }}>User</a>
+                    <a class="nav-link {{ $page === "user" ? "active" : "" }}" href={{ route('user.index') }}>User</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link {{ $page === "service" ? "active" : "" }}" href={{ route('service') }}>Service</a>
+                    <a class="nav-link {{ $page === "service" ? "active" : "" }}" href={{ route('service.index') }}>Service</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link {{ $page === "caracteristique" ? "active" : "" }}" href={{ route('caracteristique') }}>Caracteristique</a>
+                    <a class="nav-link {{ $page === "caracteristique" ? "active" : "" }}" href={{ route('caracteristique.index') }}>Caracteristique</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link {{ $page === "portfolio" ? "active" : "" }}" href={{ route('portfolio') }}>Portfolio</a>
+                    <a class="nav-link {{ $page === "portfolio" ? "active" : "" }}" href={{ route('portfolio.index') }}>Portfolio</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link {{ $page === "galerie" ? "active" : "" }}" href={{ route('galerie') }}>Galerie</a>
+                    <a class="nav-link {{ $page === "galerie" ? "active" : "" }}" href={{ route('galerie.index') }}>Galerie</a>
                 </li>
                 
             </ul>
