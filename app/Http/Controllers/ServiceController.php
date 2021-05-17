@@ -14,7 +14,9 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $services = Service::paginate(5);
+        $page = 'service';
+        return view('backoffice.service.all', compact('services', 'page'));
     }
 
     /**
@@ -24,7 +26,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.service.create');
     }
 
     /**
@@ -35,7 +37,19 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'icone'=>'require',
+            'titre'=>'require|max:255',
+            'description'=>'require'
+        ]);
+        $service = new Service();
+        $service->icone = $request->icone;
+        $service->titre = $request->titre;
+        $service->description = $request->description;
+        $service->created_at = now();
+
+        $service->save();
+        return redirect()->route('service.index');
     }
 
     /**
@@ -44,10 +58,10 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function show(Service $service)
-    {
-        //
-    }
+    // public function show(Service $service)
+    // {
+        
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -57,7 +71,7 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        return view('backoffice.service.edit', compact('service'));
     }
 
     /**
@@ -69,7 +83,18 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
+        $request->validate([
+            'icone'=>'require',
+            'titre'=>'require|max:255',
+            'description'=>'require'
+        ]);
+        $service->icone = $request->icone;
+        $service->titre = $request->titre;
+        $service->description = $request->description;
+        $service->updated_at = now();
+
+        $service->save();
+        return redirect()->route('service.index');
     }
 
     /**
@@ -80,6 +105,8 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        $service->delete();
+        
+        return redirect()->back();
     }
 }

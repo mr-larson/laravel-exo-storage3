@@ -14,7 +14,9 @@ class CaracteristiqueController extends Controller
      */
     public function index()
     {
-        //
+        $caracteristique = Caracteristique::paginate(2);
+        $page = 'caracteristique';
+        return view('backoffice.caracteristique.all', compact('caracteristique', 'page'));
     }
 
     /**
@@ -24,7 +26,7 @@ class CaracteristiqueController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.caracteristique.create');
     }
 
     /**
@@ -35,7 +37,15 @@ class CaracteristiqueController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $caracteristique = new Caracteristique();
+        $caracteristique->icone = $request->icone;
+        $caracteristique->chiffres = $request->chiffres;
+        $caracteristique->nom = $request->nom;
+
+        $caracteristique->created_at = now();
+
+        $caracteristique->save();
+        return redirect()->route('caracteristique.index');
     }
 
     /**
@@ -44,10 +54,10 @@ class CaracteristiqueController extends Controller
      * @param  \App\Models\Caracteristique  $caracteristique
      * @return \Illuminate\Http\Response
      */
-    public function show(Caracteristique $caracteristique)
-    {
-        //
-    }
+    // public function show(Caracteristique $caracteristique)
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -57,7 +67,7 @@ class CaracteristiqueController extends Controller
      */
     public function edit(Caracteristique $caracteristique)
     {
-        //
+        return view('backoffice.caracteristique.edit', compact('caracteristique'));
     }
 
     /**
@@ -69,7 +79,13 @@ class CaracteristiqueController extends Controller
      */
     public function update(Request $request, Caracteristique $caracteristique)
     {
-        //
+        $caracteristique->icone = $request->icone;
+        $caracteristique->chiffres = $request->chiffres;
+        $caracteristique->nom = $request->nom;
+        $caracteristique->updated_at = now();
+
+        $caracteristique->save();
+        return redirect()->route('caracteristique.index');
     }
 
     /**
@@ -80,6 +96,8 @@ class CaracteristiqueController extends Controller
      */
     public function destroy(Caracteristique $caracteristique)
     {
-        //
+        $caracteristique->delete();
+        
+        return redirect()->back();
     }
 }
