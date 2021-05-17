@@ -125,4 +125,10 @@ class PortfolioController extends Controller
         $portfolio->delete();
         return redirect()->back();
     }
+
+    public function download($id)
+    {
+        $portfolio = Portfolio::find($id);
+        return Storage::disk('public')->download('img/' . $portfolio->image);
+    }
 }
