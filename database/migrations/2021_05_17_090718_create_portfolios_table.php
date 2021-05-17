@@ -15,6 +15,10 @@ class CreatePortfoliosTable extends Migration
     {
         Schema::create('portfolios', function (Blueprint $table) {
             $table->id();
+            $table->string('nom', 30);
+            $table->string('image');
+            $table->string('categorie', 50);
+            $table->text('description', 255);
             $table->timestamps();
         });
     }
