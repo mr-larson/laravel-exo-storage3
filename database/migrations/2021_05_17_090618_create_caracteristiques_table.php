@@ -15,6 +15,9 @@ class CreateCaracteristiquesTable extends Migration
     {
         Schema::create('caracteristiques', function (Blueprint $table) {
             $table->id();
+            $table->string('icone');
+            $table->unsignedInteger('chiffres');
+            $table->string('nom');
             $table->timestamps();
         });
     }
