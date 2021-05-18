@@ -1,47 +1,59 @@
 @extends('layout.app')
 
 @section('content')
-  
-    <section class="container">
-
-        <h1 class="text-center my-3">Edit Galerie</h1>
-
-        <ul class="bg-danger rounded">
+    @include('partial.nav')
         
-            @foreach ($errors->all() as $message)
-                <li>{{ $message }}</li>
-            @endforeach
-            
-        </ul>
+    <section class="container mr-5">
+        
+        <h1 class="text-center my-3">tableau de Galeries</h1>
+        
+        <a class="btn btn-secondary text-white my-2" href="/galerie/create">Create</a>
 
-        <form method="POST" action="{{ route('galerie.update',$galerie->id) }}" enctype="multipart/form-data">
-            @csrf
-            @method("put")
-            <div class="mb-3">
-                <label  class="form-label">nom</label>
-                <input type="text" class="form-control" value="{{ $galerie->nom }}" name="nom">
+        @if (session("message"))
+            <div class="alert alert-success">
+                {{ session("message") }}
             </div>
-            <div class="mb-3">
-                <label  class="form-label">image</label>
-                <input type="file" class="form-control" value="{{ $galerie->image }}" name="image">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">categorie</label>
-                <select class="custom-select"  name="categorie" value="{{ $galerie->categorie }}">
-                    <option selected>choisissez une categorie</option>
-                    <option value="item1">item 1</option> 
-                    <option value="item2">item 2</option>
-                    <option value="item3">item 3</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">description</label>
-                <textarea class="form-control" name="description" id="" cols="30" rows="10">{{ $galerie->description }}</textarea>
-            </div>
-            <button type="submit" class="btn btn-secondary text-white my-3">Submit</button>
-        </form>
-      
+
+        @endif
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">nom</th>
+                <th scope="col">image</th>
+                <th scope="col">description</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody class="col-6">
+                @foreach ($galeries as $galerie)
+                    <tr>
+                        <th scope="row">{{ $galerie->id }}</th>
+                        <td> <a href=" {{ route('galerie.show', $galerie->id) }}">{{ $galerie->nom }}</a></td>
+                        <td class="w-25"><img class="img-thumbnail col-4" src="{{ asset("img/" . $galerie->image) }}" alt=""></td>
+                        <td>{{ $galerie->description }}</td>
+                        <td>
+                            <div class="d-flex">
+                                <form action="/galerie/{{ $galerie->id }}/download" method="POST">
+                                    @csrf
+                                    <button class="btn btn-warning text-white mx-2" type="submit">Download</button>
+                                </form>
+                                <a class="btn btn-secondary text-white" href="{{route('galerie.edit',$galerie->id) }}">Edit</a>
+                                <form action="{{ route('galerie.destroy',$galerie->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger text-white mx-2" type="submit">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+        <div>{{ $galeries->links() }}</div>
+           
     </section>
 
-  @include('partial.footer')
+    @include('partial.footer')
 @endsection

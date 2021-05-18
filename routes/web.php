@@ -21,12 +21,12 @@ Route::resource('caracteristique', CaracteristiqueController::class);
 
 // Users
 Route::resource('user', UserController::class);
-Route::post("user/{id}/download", [UserController::class]);
+Route::post("user/{id}/download", [UserController::class,'download']);
 
 // portfolio
 Route::resource('portfolio', PortfolioController::class);
-Route::post("portfolio/{id}/download", [PortfolioController::class]);
+Route::post("portfolio/{id}/download", [PortfolioController::class,'download']);
 
 // Galerie
 Route::resource('galerie', GalerieController::class);
-Route::post("galerie/{id}/download", [GalerieController::class]);
+Route::post("galerie/{id}/download", [GalerieController::class,'download']);

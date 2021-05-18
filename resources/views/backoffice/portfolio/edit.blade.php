@@ -39,6 +39,7 @@
                 <textarea class="form-control" name="description" id="" cols="30" rows="10">{{ $portfolio->description }}</textarea>
             </div>
             <button type="submit" class="btn btn-secondary text-white my-3">Submit</button>
+            
         </form>
       
     </section>
