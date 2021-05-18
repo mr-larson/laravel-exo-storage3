@@ -23,10 +23,10 @@ Route::resource('caracteristique', CaracteristiqueController::class);
 Route::resource('user', UserController::class);
 Route::post("user/{id}/download", [UserController::class,'download']);
 
-// portfolio
+// portfolios
 Route::resource('portfolio', PortfolioController::class);
 Route::post("portfolio/{id}/download", [PortfolioController::class,'download']);
 
-// Galerie
+// Galeries
 Route::resource('galerie', GalerieController::class);
 Route::post("galerie/{id}/download", [GalerieController::class,'download']);
