@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
@@ -43,7 +44,7 @@ class UserController extends Controller
 	        'nom' => 'required|max:30',
 	        'prenom' => 'required|max:30',
             'age' => 'required|integer',
-	        'email' => 'required|unique:user',
+	        'email' => 'required|unique:users',
             'password' => 'required',
             'photo' => 'required'
 	    ]);
@@ -53,7 +54,7 @@ class UserController extends Controller
         $user->prenom = $request->prenom;
         $user->age = $request->age;   
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $user->photo = $request->file('photo')->hashName(); 
         $user->updated_at = now();   
  

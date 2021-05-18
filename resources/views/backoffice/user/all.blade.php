@@ -7,7 +7,7 @@
         
         <h1 class="text-center my-3">tableau de Users</h1>
         
-        <a class="btn btn-secondary text-white my-2" href="/user/create">Create</a>
+        <a class='btn btn-secondary text-white my-2' href={{ route("user.create") }}>Create </a>
         
         @if(session()->has('message'))
             <div class="alert alert-success">

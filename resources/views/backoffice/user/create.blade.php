@@ -13,7 +13,7 @@
     
     </ul>
 
-    <form action="/user/store" method="post" enctype="multipart/form-data">
+    <form action={{ route("user.store") }} method="post" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label class="form-label">Nom</label>
