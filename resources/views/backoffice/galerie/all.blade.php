@@ -3,11 +3,11 @@
 @section('content')
     @include('partial.nav')
         
-    <section class="container mr-5">
+    <section class="container mr-5 section">
         
-        <h1 class="text-center my-3">tableau de Galeries</h1>
+        <h1 class="text-center my-3 text-white">tableau de Galeries</h1>
         
-        <a class="btn btn-secondary text-white my-2" href="/galerie/create">Create</a>
+        <a class="btn btn-dark text-white my-2" href="/galerie/create">Create</a>
 
         @if (session("message"))
             <div class="alert alert-success">
@@ -16,7 +16,7 @@
 
         @endif
 
-        <table class="table">
+        <table class="table text-white">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -30,16 +30,16 @@
                 @foreach ($galeries as $galerie)
                     <tr>
                         <th scope="row">{{ $galerie->id }}</th>
-                        <td> <a href=" {{ route('galerie.show', $galerie->id) }}">{{ $galerie->nom }}</a></td>
-                        <td class="w-25"><img class="img-thumbnail col-4" src="{{ asset("img/" . $galerie->image) }}" alt=""></td>
+                        <td>{{ $galerie->nom }}</a></td>
+                        <td class="w-25"><a href=" {{ route('galerie.show', $galerie->id) }}"><img class="img-thumbnail col-4" src="{{ asset("img/" . $galerie->image) }}" alt=""></td>
                         <td>{{ $galerie->description }}</td>
                         <td>
                             <div class="d-flex">
                                 <form action="/galerie/{{ $galerie->id }}/download" method="POST">
                                     @csrf
-                                    <button class="btn btn-warning text-white mx-2" type="submit">Download</button>
+                                    <button class="btn btn-dark text-white mx-2" type="submit">Download</button>
                                 </form>
-                                <a class="btn btn-secondary text-white" href="{{route('galerie.edit',$galerie->id) }}">Edit</a>
+                                <a class="btn btn-dark text-white" href="{{route('galerie.edit',$galerie->id) }}">Edit</a>
                                 <form action="{{ route('galerie.destroy',$galerie->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')

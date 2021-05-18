@@ -3,11 +3,12 @@
 @section('content')
     @include('partial.nav')
         
-    <section class="container mr-5">
+    <section class="container mr-5 section">
         
-        <h1 class="text-center my-3">tableau de Users</h1>
         
-        <a class='btn btn-secondary text-white my-2' href={{ route("user.create") }}>Create </a>
+        <h1 class="text-center text-white my-3">tableau de Users</h1>
+        
+        <a class='btn btn-dark text-white my-2' href={{ route("user.create") }}>Create </a>
         
         @if(session()->has('message'))
             <div class="alert alert-success">
@@ -15,7 +16,7 @@
             </div>
         @endif
         
-        <table class="table">
+        <table class="table text-white">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -36,15 +37,15 @@
                         <td>{{ $user->prenom }}</td>
                         <td>{{ $user->age }}</td>
                         <td>{{ $user->email }}</td>
-                        <td class="w-25">{{ $user->password }}</td>
-                        <td><img class="img-thumbnail col-4" src={{ asset("img/" . $user->photo) }} alt=""></td>
+                        <td class="w-25"> *** </td>
+                        <td><a href=" {{ route('user.show', $user->id) }}"><img class="img-thumbnail col-4" src={{ asset("img/" . $user->photo) }} alt=""></td>
                         <td>
                             <div class="d-flex">
                                 <form action="/user/{{ $user->id }}/download" method="POST">
                                     @csrf
-                                    <button class="btn btn-warning text-white mx-2" type="submit">Download</button>
+                                    <button class="btn btn-dark text-white mx-2" type="submit">Download</button>
                                 </form>
-                                <a class="btn btn-secondary text-white" href="{{ route('user.edit', $user->id) }}">Edit</a>
+                                <a class="btn btn-dark text-white" href="{{ route('user.edit', $user->id) }}">Edit</a>
                                 <form action="{{ route('user.destroy', $user->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')

@@ -16962,11 +16962,74 @@ readers do not read off random characters that represent icons */
   font-weight: 400;
 }
 
-section {
-  min-height: 78vh;
-}
-
 .fa {
   font-family: "Font Awesome 5 Free", Open Sans;
   font-weight: 501;
+}
+
+.myHeight {
+  height: 100vh;
+  width: 15vw;
+}
+
+.placeHolder {
+  height: 10vh;
+  width: 1px;
+}
+
+@media screen and (max-width: 800px) {
+  .myHeight {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+  }
+}
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url(https://media.istockphoto.com/photos/blue-abstract-background-or-texture-picture-id1138395421?k=6&m=1138395421&s=612x612&w=0&h=bJ1SRWujCgg3QWzkGPgaRiArNYohPl7-Wc4p_Fa_cyA=);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section {
+  transition: 0.5s;
+  background: rgba(68, 54, 54, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 5px 5px 30px black;
+  -webkit-animation: apparition2 1.5s 0s ease-out;
+          animation: apparition2 1.5s 0s ease-out;
+}
+@-webkit-keyframes apparition2 {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes apparition2 {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.show {
+  -webkit-animation: apparition2 1.5s 0s ease-out;
+          animation: apparition2 1.5s 0s ease-out;
+  border-top: 1px solid rgba(255, 255, 255, 0.322);
+  border-left: 1px solid rgba(255, 255, 255, 0.322);
+  box-shadow: 5px 5px 30px #dfdddd;
 }

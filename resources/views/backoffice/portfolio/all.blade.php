@@ -3,11 +3,11 @@
 @section('content')
     @include('partial.nav')
         
-    <section class="container mr-5">
+    <section class="container mr-5 section text-white">
         
         <h1 class="text-center my-3">tableau de Portfolios</h1>
         
-        <a class="btn btn-secondary text-white my-2" href="/portfolio/create">Create</a>
+        <a class="btn btn-dark text-white my-2" href="/portfolio/create">Create</a>
 
         @if (session("message"))
             <div class="alert alert-success">
@@ -16,7 +16,7 @@
 
         @endif
 
-        <table class="table">
+        <table class="table text-white">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -31,17 +31,17 @@
                 @foreach ($portfolios as $portfolio)
                     <tr>
                         <th scope="row">{{ $portfolio->id }}</th>
-                        <td> <a href=" {{ route('portfolio.show', $portfolio->id) }}">{{ $portfolio->nom }}</a></td>
-                        <td class="w-25"><img class="img-thumbnail col-4" src="{{ asset("img/" . $portfolio->image) }}" alt=""></td>
+                        <td> {{ $portfolio->nom }}</a></td>
+                        <td class="w-25"><a href=" {{ route('portfolio.show', $portfolio->id) }}"><img class="img-thumbnail col-4" src="{{ asset("img/" . $portfolio->image) }}" alt=""></td>
                         <td>{{ $portfolio->categorie }}</td>
                         <td>{{ $portfolio->description }}</td>
                         <td>
                             <div class="d-flex">
                                 <form action="/portfolio/{{ $portfolio->id }}/download" method="POST">
                                     @csrf
-                                    <button class="btn btn-warning text-white mx-2" type="submit">Download</button>
+                                    <button class="btn btn-dark text-white mx-2" type="submit">Download</button>
                                 </form>
-                                <a class="btn btn-secondary text-white" href="{{route('portfolio.edit',$portfolio->id) }}">Edit</a>
+                                <a class="btn btn-dark text-white" href="{{route('portfolio.edit',$portfolio->id) }}">Edit</a>
                                 <form action="{{ route('portfolio.destroy',$portfolio->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')

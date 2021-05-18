@@ -3,11 +3,11 @@
 @section('content')
     @include('partial.nav')
         
-    <section class="container mr-5">
+    <section class="container mr-5 section">
         
-        <h1 class="text-center my-3">tableau de Services</h1>
+        <h1 class="text-center my-3 text-white">tableau de Services</h1>
         
-        <a class="btn btn-secondary text-white my-2" href={{ route("service.create") }}>Create</a>
+        <a class="btn btn-dark text-white my-2" href={{ route("service.create") }}>Create</a>
 
         @if (session("message"))
             <div class="alert alert-success">
@@ -15,7 +15,7 @@
             </div>
         @endif
 
-        <table class="table">
+        <table class="table text-white">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -34,7 +34,7 @@
                         <td>{{ $service->description }}</td>
                         <td>
                             <div class="d-flex">
-                                <a class="btn btn-secondary text-white" href={{ route("service.edit", $service->id) }}>Edit</a>
+                                <a class="btn btn-dark text-white" href={{ route("service.edit", $service->id) }}>Edit</a>
                                 <form action={{ route("service.destroy", $service->id) }} method="POST">
                                     @csrf
                                     @method('DELETE')

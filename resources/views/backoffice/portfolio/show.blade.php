@@ -5,9 +5,9 @@
         
     <section class="container mr-5">
         
-        <h1 class="text-center my-3">tableau de Portfolio</h1>
+        <h1 class="text-center text-white my-3">tableau de Portfolio</h1>
         <div class="d-flex justify-content-center">
-            <img class="w-75  my-3 " src="{{ asset("img/" . $portfolio->image) }}" alt="">
+            <img class="w-75  my-3 img-thumbnail show" src="{{ asset("img/" . $portfolio->image) }}" alt="">
         </div>
         
     </section>

@@ -1,12 +1,15 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
-    <div class="container-fluid">
+<nav class="navbar  navbar-dark bg-dark p-3 fixed-top myHeight d-flex justify-content-between flex-column">
+    <div class="placeHolder">
+
+    </div>
+    <div class="container-fluid ">
         
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+        </button> --}}
+        <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+            <ul class="navbar-nav d-flex flex-column justify-content-between h-100  align-items-center">
                 <li class="nav-item">
                     <a class="nav-link {{ $page === "home" ? "active" : "" }}" href={{ route('home') }}>Home</a>
                 </li>
@@ -33,4 +36,10 @@
             </ul>
         </div>
     </div>
+    <div class="text-center p-4 bg-dark text-light">
+        © 2021 Copyright Saïd-Gauthier #dream-team
+    </div>
+   
+    
 </nav>
+

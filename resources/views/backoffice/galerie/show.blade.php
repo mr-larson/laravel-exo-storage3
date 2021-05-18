@@ -3,11 +3,11 @@
 @section('content')
     @include('partial.nav')
         
-    <section class="container mr-5">
+    <section class="container mr-5 ">
         
-        <h1 class="text-center my-3">tableau de galerie</h1>
+        <h1 class="text-center text-white my-3">tableau de galerie</h1>
         <div class="d-flex justify-content-center">
-            <img class="w-75  my-3 " src="{{ asset("img/" . $galerie->image) }}" alt="">
+            <img class="w-75  my-3 img-thumbnail show" src="{{ asset("img/" . $galerie->image) }}" alt="">
         </div>
         
     </section>

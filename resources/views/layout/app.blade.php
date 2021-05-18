@@ -8,7 +8,17 @@
     <link rel="stylesheet" href={{ asset("css/app.css") }}>
 </head>
 <body>
-    @yield('content')
+
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-2">
+
+            </div>
+            <div class="col-12 col-md-10">
+                @yield('content')
+            </div>
+        </div>
+    </div>
     
     <script src="{{ asset("js/app.js") }}"></script>
 </body>
