@@ -19,24 +19,23 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">nom</th>
-                <th scope="col">image</th>
-                <th scope="col">categorie</th>
-                <th scope="col">description</th>
-                <th scope="col">Action</th>
+                <th scope="col">Icone</th>
+                <th scope="col">Chiffres</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody class="col-6">
                 @foreach ($caracteristiques as $caracteristique)
                     <tr>
                         <th scope="row">{{ $caracteristique->id }}</th>
-                        <td>{{ $caracteristique->icone }}</td>
+                        <td>{!! $caracteristique->icone !!}</td>
                         <td>{{ $caracteristique->chiffres }}</td>
                         <td>{{ $caracteristique->nom }}</td>
                         <td>
                             <div class="d-flex">
-                                <a class="btn btn-secondary text-white" href={{ route("caracteristique.edit") }}>Edit</a>
-                                <form action={{ "caracteristique.destroy" }} method="POST">
+                                <a class="btn btn-secondary text-white" href={{ route("caracteristique.edit", $caracteristique->id) }}>Edit</a>
+                                <form action={{ route("caracteristique.destroy", $caracteristique->id) }} method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger text-white mx-2" type="submit">Delete</button>
