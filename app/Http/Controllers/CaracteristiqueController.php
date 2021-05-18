@@ -37,6 +37,12 @@ class CaracteristiqueController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'icone'=>"required",
+            'chiffres'=>"required",
+            'nom'=>"required|max:50",
+        ]);
+
         $caracteristique = new Caracteristique();
         $caracteristique->icone = $request->icone;
         $caracteristique->chiffres = $request->chiffres;
@@ -45,7 +51,7 @@ class CaracteristiqueController extends Controller
         $caracteristique->created_at = now();
 
         $caracteristique->save();
-        return redirect()->route('caracteristique.index');
+        return redirect()->route('caracteristique.index')->with("message", "Added successfully");
     }
 
     /**
@@ -79,13 +85,19 @@ class CaracteristiqueController extends Controller
      */
     public function update(Request $request, Caracteristique $caracteristique)
     {
+        $request->validate([
+            'icone'=>"required",
+            'chiffres'=>"required",
+            'nom'=>"required|max:50",
+        ]);
+
         $caracteristique->icone = $request->icone;
         $caracteristique->chiffres = $request->chiffres;
         $caracteristique->nom = $request->nom;
         $caracteristique->updated_at = now();
 
         $caracteristique->save();
-        return redirect()->route('caracteristique.index');
+        return redirect()->route('caracteristique.index')->with("message", "Edited successfully");
     }
 
     /**

@@ -9,7 +9,11 @@
             Icone :
         </label>
         <select name="icone" class="form-control fa">
-            <option class="fa" value='<i class="fab fa-facebook-f"></i>'>&#xf26e;</option>
+            <option class="fa" value='<i class="fas fa-pencil-alt"></i>'>&#xf303; - Crayon</option>
+            <option class="fa" value='<i class="fas fa-ad"></i>'>&#xf641; - Ad</option>
+            <option class="fa" value='<i class="fas fa-address-card"></i>'>&#xf2bb; - Card</option>
+            <option class="fa" value='<i class="fas fa-adjust"></i>'>&#xf042; - Circle</option>
+            <option class="fa" value='<i class="fas fa-anchor"></i>'>&#xf13d; - Encre</option>
         </select>
         <label class="mt-2" for="icone">
             Nom :

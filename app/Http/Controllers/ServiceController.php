@@ -38,9 +38,9 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'icone'=>'require',
-            'titre'=>'require|max:255',
-            'description'=>'require'
+            'icone'=>'required',
+            'titre'=>'required|max:255',
+            'description'=>'required'
         ]);
         $service = new Service();
         $service->icone = $request->icone;
@@ -49,7 +49,7 @@ class ServiceController extends Controller
         $service->created_at = now();
 
         $service->save();
-        return redirect()->route('service.index');
+        return redirect()->route('service.index')->with('message', 'Added successfully');
     }
 
     /**
@@ -84,9 +84,9 @@ class ServiceController extends Controller
     public function update(Request $request, Service $service)
     {
         $request->validate([
-            'icone'=>'require',
-            'titre'=>'require|max:255',
-            'description'=>'require'
+            'icone'=>'required',
+            'titre'=>'required|max:255',
+            'description'=>'required'
         ]);
         $service->icone = $request->icone;
         $service->titre = $request->titre;
@@ -94,7 +94,7 @@ class ServiceController extends Controller
         $service->updated_at = now();
 
         $service->save();
-        return redirect()->route('service.index');
+        return redirect()->route('service.index')->with('message', 'Edited successfully');
     }
 
     /**
