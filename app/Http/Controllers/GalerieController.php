@@ -17,7 +17,6 @@ class GalerieController extends Controller
     {
         $galeries = Galerie::paginate(2);
         $page = "galerie";
-
         return view("backoffice.galerie.all",compact("page", "galeries"));
     }
 
@@ -63,9 +62,9 @@ class GalerieController extends Controller
      */
     public function show(Galerie $galerie)
     {
-        $galeries = Galerie::all();
+        
         $page = "galerie";
-        return view('backoffice.galerie.show',compact('galeries',"page"));
+        return view('backoffice.galerie.show',compact('galerie',"page"));
     }
 
     /**
@@ -116,7 +115,6 @@ class GalerieController extends Controller
     {
         Storage::disk('public')->delete('img/' . $galerie->image);
         $galerie->delete();
-
         return redirect()->back(); 
     }
 

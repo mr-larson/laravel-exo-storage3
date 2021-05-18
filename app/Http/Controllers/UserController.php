@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(3);
+        $users = User::paginate(2);
         $page = "user";
 
         return view("backoffice.user.all",compact("users","page"));   
@@ -43,11 +43,12 @@ class UserController extends Controller
 	        'nom' => 'required|max:30',
 	        'prenom' => 'required|max:30',
             'age' => 'required|integer',
-	        'email' => 'required|unique:users',
+	        'email' => 'required|unique:user',
             'password' => 'required',
             'photo' => 'required'
 	    ]);
         $user = new User;
+
         $user->nom = $request->nom;
         $user->prenom = $request->prenom;
         $user->age = $request->age;   
@@ -70,9 +71,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        $users = User::all();
         $page = "user";
-        return view('backoffice.user.show',compact('users','page'));
+        return view('backoffice.user.show',compact('user','page'));
     }
 
     /**
@@ -84,7 +84,6 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $page = "user";
-
         return view("backoffice.user.edit", compact("user","page")); 
     }
 
@@ -101,7 +100,7 @@ class UserController extends Controller
 	        'nom' => 'required|max:30',
 	        'prenom' => 'required|max:30',
             'age' => 'required|integer',
-	        'email' => 'required|unique:users',
+	        'email' => 'required',
             'password' => 'required',
             'photo' => 'required'
 	    ]);
@@ -128,8 +127,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        Storage::disk("public")->delete("img/" . $user->image);
         $user->delete();
-
         return redirect()->back();
     }
 
