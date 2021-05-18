@@ -57,7 +57,7 @@ class PortfolioController extends Controller
 
         $portfolio->save();
         $request->file("image")->storePublicly("img", "public");
-        return redirect()->route('portfolio.index')->with("message", "Succès message");
+        return redirect()->route('portfolio.index')->with("message", "Success message");
     }
 
     /**
@@ -68,10 +68,8 @@ class PortfolioController extends Controller
      */
     public function show(Portfolio $portfolio)
     {
-        $portfolios = Portfolio::all();
         $page = 'portfolio';
-
-        return view("backoffice.portfolio.show", compact('portfolios', 'page'));
+        return view("backoffice.portfolio.show", compact('portfolio', 'page'));
     }
 
     /**
@@ -103,6 +101,7 @@ class PortfolioController extends Controller
         ]);
 
         $portfolio->nom = $request->nom;
+        Storage::disk('public')->delete('img/'. $portfolio->image);
         $portfolio->image = $request->file("image")->hashName();
         $portfolio->categorie = $request->categorie;
         $portfolio->description = $request->description;
@@ -110,7 +109,7 @@ class PortfolioController extends Controller
 
         $portfolio->save();
         $request->file("image")->storePublicly("img", "public");
-        return redirect()->route('portfolio.index')->with("message", "Succès message");
+        return redirect()->route('portfolio.index')->with("message", "Success message");
     }
 
     /**

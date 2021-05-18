@@ -32,7 +32,7 @@
                     <tr>
                         <th scope="row">{{ $portfolio->id }}</th>
                         <td> <a href=" {{ route('portfolio.show', $portfolio->id) }}">{{ $portfolio->nom }}</a></td>
-                        <td class="w-25"><img class="img-thumbnail col-4" src={{ asset("img/" . $portfolio->image) }} alt=""></td>
+                        <td class="w-25"><img class="img-thumbnail col-4" src="{{ asset("img/" . $portfolio->image) }}" alt=""></td>
                         <td>{{ $portfolio->categorie }}</td>
                         <td>{{ $portfolio->description }}</td>
                         <td>
