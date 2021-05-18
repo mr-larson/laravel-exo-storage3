@@ -14,8 +14,9 @@
             
         </ul>
 
-        <form method="POST" action="/portfolio/{{ $portfolio->id }}/update" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('portfolio.update',$portfolio->id) }}" enctype="multipart/form-data">
             @csrf
+            @method("put")
             <div class="mb-3">
                 <label  class="form-label">nom</label>
                 <input type="text" class="form-control" value="{{ $portfolio->nom }}" name="nom">
