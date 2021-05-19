@@ -7,9 +7,9 @@
     <title>exo storage 3</title>
     <link rel="stylesheet" href={{ asset("css/app.css") }}>
 </head>
-<body>
+<body class="bg-dark">
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col col-md-2">
 

@@ -14,7 +14,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::paginate(5);
+        $services = Service::paginate(4);
         $page = 'service';
         return view('backoffice.service.all', compact('services', 'page'));
     }

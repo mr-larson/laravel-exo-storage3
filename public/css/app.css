@@ -17048,13 +17048,14 @@ body {
 }
 
 .myHeight {
-  height: 100vh;
+  height: 95vh;
   width: 15vw;
+  margin-left: 1vw;
+  margin-top: 2.5vh;
 }
 
-.placeHolder {
-  height: 10vh;
-  width: 1px;
+.myHeight2 {
+  height: 95vh;
 }
 
 @media screen and (max-width: 800px) {
@@ -17063,4 +17064,86 @@ body {
     height: 100vh;
     width: 100vw;
   }
+}
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section {
+  transition: 0.5s;
+  background: rgba(68, 54, 54, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 2px 2px 8px black;
+  -webkit-animation: apparition2 1.5s 0s ease-out;
+          animation: apparition2 1.5s 0s ease-out;
+}
+@keyframes apparition2 {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.edit {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  pointer-events: none;
+  font-size: 20px;
+}
+
+.delete {
+  position: absolute;
+  bottom: 15px;
+  left: 7px;
+}
+
+.section2 {
+  position: relative;
+  height: 22vh;
+  transition: 0.5s;
+  background: rgba(68, 54, 54, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 2px 2px 8px black;
+  -webkit-animation: apparition2 1.5s 0s ease-out;
+          animation: apparition2 1.5s 0s ease-out;
+}
+.section2 .triangle {
+  top: 0;
+  right: 0;
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-top: 65px solid #5d5d5d;
+  border-left: 65px solid transparent;
+}
+@keyframes apparition2 {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.show {
+  -webkit-animation: apparition2 1.5s 0s ease-out;
+          animation: apparition2 1.5s 0s ease-out;
+  border-top: 1px solid rgba(255, 255, 255, 0.322);
+  border-left: 1px solid rgba(255, 255, 255, 0.322);
+  box-shadow: 5px 5px 30px #dfdddd;
 }
