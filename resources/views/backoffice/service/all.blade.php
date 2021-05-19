@@ -15,38 +15,6 @@
             </div>
         @endif
 
-        {{-- <table class="table text-white">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Icone</th>
-                <th scope="col">Titre</th>
-                <th scope="col">Description</th>
-                <th scope="col">Actions</th>
-              </tr>
-            </thead>
-            <tbody class="col-6">
-                @foreach ($services as $service)
-                    <tr>
-                        <th scope="row">{{ $service->id }}</th>
-                        <td>{!! $service->icone !!}</td>
-                        <td>{{ $service->titre }}</td>
-                        <td>{{ $service->description }}</td>
-                        <td>
-                            <div class="d-flex">
-                                <a class="btn btn-dark text-white border" href={{ route("service.edit", $service->id) }}>Edit</a>
-                                <form action={{ route("service.destroy", $service->id) }} method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger border text-white mx-2" type="submit">Delete</button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table> --}}
-
         <div class="container mt-4">
             <div class="row">
                 @foreach ($services as $service)
@@ -60,7 +28,7 @@
                                 <button class="btn border text-white delete mx-2" type="submit"><i class="fas fa-trash"></i></button>
                             </form>
                             <div>
-                                <h3 class="fw-bold">{{ $service->titre }}</h3>
+                                <h2 class="fw-bold">{{ $service->titre }}</h2>
                                 <p>{{ $service->description }}</p>
                             </div>
                             <i class="fs-2">{!! $service->icone !!}</i>
