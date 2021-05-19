@@ -16962,35 +16962,43 @@ readers do not read off random characters that represent icons */
   font-weight: 400;
 }
 
-.fa {
-  font-family: "Font Awesome 5 Free", Open Sans;
-  font-weight: 501;
+/*fonts*/
+@font-face {
+  font-family: "Libre_Baskerville";
+  src: url(/fonts/LibreBaskerville-Italic.ttf?0ebc99f333a6cbc1dfc015fc07509f8d);
+}
+@font-face {
+  font-family: "Dancing_Sprit";
+  src: url(/fonts/DancingScript-Bold.ttf?3727d88dec67e1e78cf987dab60d9887);
+}
+* {
+  font-family: "Dancing_Sprit";
+  font-size: 15px;
 }
 
-.myHeight {
-  height: 100vh;
-  width: 15vw;
+th {
+  font-family: "Libre_Baskerville" !important;
 }
 
-.placeHolder {
-  height: 10vh;
-  width: 1px;
+td {
+  font-family: "Libre_Baskerville" !important;
+  font-size: 10px !important;
 }
 
-@media screen and (max-width: 800px) {
-  .myHeight {
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-  }
-}
+/* body */
 body {
   height: 100vh;
   display: flex;
   align-items: center;
-  background-image: url(https://media.istockphoto.com/photos/blue-abstract-background-or-texture-picture-id1138395421?k=6&m=1138395421&s=612x612&w=0&h=bJ1SRWujCgg3QWzkGPgaRiArNYohPl7-Wc4p_Fa_cyA=);
+  justify-content: center;
+  background: radial-gradient(circle, #7c7ffa 0%, #4694fc 100%);
+  /* background-image: url(https://media.istockphoto.com/photos/blue-abstract-background-or-texture-picture-id1138395421?k=6&m=1138395421&s=612x612&w=0&h=bJ1SRWujCgg3QWzkGPgaRiArNYohPl7-Wc4p_Fa_cyA=);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover;  */
+}
+
+.nav-item a {
+  font-size: 25px;
 }
 
 .section {
@@ -17032,4 +17040,27 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.322);
   border-left: 1px solid rgba(255, 255, 255, 0.322);
   box-shadow: 5px 5px 30px #dfdddd;
+}
+
+.fa {
+  font-family: "Font Awesome 5 Free", Open Sans;
+  font-weight: 501;
+}
+
+.myHeight {
+  height: 100vh;
+  width: 15vw;
+}
+
+.placeHolder {
+  height: 10vh;
+  width: 1px;
+}
+
+@media screen and (max-width: 800px) {
+  .myHeight {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+  }
 }
