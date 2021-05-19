@@ -1,4 +1,4 @@
-<nav class="navbar section navbar-dark bg-dark p-3 fixed-top myHeight d-flex justify-content-between flex-column">
+<nav class="navbar navbar-dark bg-dark p-3 fixed-top myHeight d-flex justify-content-between flex-column">
     <div class="placeHolder">
         <h4 class="text-white mt-5">BackOffice</h4>
     </div>
@@ -30,7 +30,7 @@
             </ul>
         </div>
     </div>
-    <div class="text-center p-4 bg-dark text-light">
+    <div class="text-center p-4 bg-dark text-secondary">
         © 2021 Copyright <br> Saïd-Gauthier #dream-team
     </div>
    
