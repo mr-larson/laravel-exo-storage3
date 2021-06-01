@@ -17029,6 +17029,22 @@ nav {
   font-size: 20px;
 }
 
+.myModalBG {
+  background: rgba(0, 0, 0, 0.123);
+  height: 100%;
+}
+
+.myModal {
+  position: absolute;
+  top: -90%;
+  background: rgba(0, 0, 0, 0.842);
+}
+
+.myTitle {
+  font-size: 19px;
+  padding-bottom: 3px;
+}
+
 .section {
   transition: 0.5s;
   background: rgba(68, 54, 54, 0.05);
