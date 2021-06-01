@@ -36,8 +36,7 @@
                         </div>
                     @endforeach
                 </div>
-            </div>    
-
+            </div>
 
         <div>{{ $caracteristiques->links() }}</div>
            
